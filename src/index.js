@@ -122,15 +122,29 @@ ReactDOM.render(mydiv, document.getElementById("app"));
 // );
 // ReactDOM.render(divObj, document.getElementById("app"));
 
-//这两个导入的时候，接收的成员名称 必须这么写
+// 66666//这两个导入的时候，接收的成员名称 必须这么写
 import React from "react"; //创建组件 虚拟DOM元素 生命周期
 import ReactDOM from "react-dom";
 import "@/components/first";
 
 import First from "./components/first";
+import Double from "./components/double";
 let divObj = (
   <div>
     <First />
+    <Double />
   </div>
 );
 ReactDOM.render(divObj, document.getElementById("app"));
+
+// 77777//这两个导入的时候，接收的成员名称 必须这么写
+// import React from "react"; //创建组件 虚拟DOM元素 生命周期
+// import ReactDOM from "react-dom";
+
+// import Double from "./components/double";
+// let divObj = (
+//   <div>
+//     <Double />
+//   </div>
+// );
+// ReactDOM.render(divObj, document.getElementById("app"));

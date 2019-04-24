@@ -14,6 +14,7 @@ export default class First extends React.Component {
     super();
 
     this.state = {
+      city: "杭州",
       CommentList: [
         {
           id: 1,
@@ -52,13 +53,39 @@ export default class First extends React.Component {
   render() {
     return (
       <div>
-        <h2 className="title">我是列表</h2>
+        <h2 className="title">我是列表---{this.state.city}</h2>
         {/* <button className={[bootcss.btn, bootcss['btn-primary']].join(' ')}>按钮</button> */}
-        <button className="btn btn-primary">按钮</button>
+
+        <button className="btn btn-primary" onClick={() => this.testFn()}>
+          按钮
+        </button>
+
+        {/* <button className="btn btn-primary" onClick={this.testFn()}>
+          按钮
+        </button> */}
+        {/* <button className="btn btn-primary" onClick={this.testFn}>
+          按钮
+        </button> */}
+
         {this.state.CommentList.map(item => (
           <Test {...item} key={item.id} />
         ))}
       </div>
     );
   }
+  //箭头函数在定义的时候就确定了this指向
+  testFn = () => {
+    console.log(this);
+    console.log(this.state.CommentList);
+    //在React中，如果想要修改 state 中的数据，推荐使用 this.setState({ })
+    this.setState(
+      {
+        city: "杭州你好"
+      },
+      function() {
+        console.log(this.state.city); //杭州你好
+      }
+    );
+    //console.log(this.state.city); //杭州
+  };
 }
